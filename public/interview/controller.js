@@ -11,18 +11,13 @@
                     size: 'lg',
                     templateUrl: '/interview/questions.html',
                     controller: function($scope) {
-                        $scope.page = 1;
-                        $scope.size = 5;
-                        $scope.count = interview.questions.length;
-                        $scope.change = function() {
-                            $scope.questions = interview.questions.slice(
-                                ($scope.page - 1) * $scope.size, $scope.page * $scope.size);
-                        };
-                        $scope.change();
+                        $scope.active = 0;
+                        $scope.questions = interview.questions;
+                        $scope.slides = [];
+                        $scope.questions.forEach((question, idx)=>$scope.slides.push({id: idx, txt: question}));
                     }
                 });
             };
         });
-
 })();
 

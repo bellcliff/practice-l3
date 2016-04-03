@@ -1,12 +1,5 @@
-<ul>
-<li ng-repeat="question in questions">
-    <pre>{{question}}</pre>
-</li>
-</ul>
-<div data-uib-pagination class="pagination-sm"
-    data-total-items="count"
-    data-ng-model="page"
-    data-items-per-page="size"
-    data-ng-change="change()">
+<div data-uib-carousel data-active="active" style="height:640px;overflow:hidden;">
+    <div data-uib-slide data-ng-repeat="slide in slides" data-index="slide.id" style="height:640px;">
+        <div class="carousel-caption"><h1>{{slide.txt}}</h1></div>
+    </div>
 </div>
-

@@ -6,3 +6,8 @@ a {
 .table tbody tr td {
     vertical-align: middle;
 }
+
+.carousel-caption {
+    background-color: #333;
+    height: 100%;
+}
