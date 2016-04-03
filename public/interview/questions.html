@@ -1,0 +1,12 @@
+<ul>
+<li ng-repeat="question in questions">
+    <pre>{{question}}</pre>
+</li>
+</ul>
+<div data-uib-pagination class="pagination-sm"
+    data-total-items="count"
+    data-ng-model="page"
+    data-items-per-page="size"
+    data-ng-change="change()">
+</div>
+
