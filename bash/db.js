@@ -1,4 +1,4 @@
-var dbConn = require('mongodb').MongoClient.connect('mongodb://localhost/l2');
+var dbConn = require('mongodb').MongoClient.connect('mongodb://localhost/l3');
 
 function saveInterview(interview) {
     // console.log('save', interview);
@@ -12,6 +12,7 @@ module.exports = {
     saveInterviews: function(interviews) {
         var interviewPromises = [];
         interviews.forEach(function(interview) {
+            interview.Date = new Date(interview.Date);
             interviewPromises.push(saveInterview(interview));
         });
         return Promise.all(interviewPromises);

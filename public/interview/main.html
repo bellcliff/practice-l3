@@ -1,0 +1,25 @@
+<table class="table table-stripped">
+    <thead>
+    <tr>
+        <th>Client</th>
+        <th>Candidate</th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-repeat="interview in interviews">
+        <td>{{interview.Client}}</td>
+        <td>{{interview.Candidate}}</td>
+        <td>{{interview.Type}}</td>
+        <td>{{interview.Date}}</td>
+        <td>
+            <button class="btn btn-success" data-ng-click="showQuestions(interview)">
+                Questions
+                <span class="badge">{{interview.questions.length}}</span>
+            </button>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -1,18 +1,20 @@
-(function(){
-
-    angular.module('app', ['ui.bootstrap'])
-        .controller('it', function($scope, $http, $uibModal){
-            $http.get('/interview').then(function(data){
-                $scope.interviews = data.data;
+(function() {
+    'use strict';
+    angular.module('app', ['ui.bootstrap', 'ui.router'])
+        .config(function($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.otherwise(function() {
+                console.log('change to interview');
+                return '/interview';
             });
-            $scope.showQuestions = function(interview){
-                console.log(interview.questions);
-                $uibModal.open({
-                    templateUrl: '/questions.html',
-                    controller: function($scope){
-                        $scope.questions = interview.questions;
-                    }
+            $stateProvider
+                .state('interview', {
+                    url: '/interview',
+                    templateUrl: '/interview/main.html',
+                    controller: 'InterviewCtrl'
                 });
-            };
+        })
+        .run(function($state) {
+            console.log('run', $state);
+            $state.go('interview');
         });
 })();

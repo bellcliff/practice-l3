@@ -1,3 +1,4 @@
 public/libs
+db
 node_modules
 .swp.*
